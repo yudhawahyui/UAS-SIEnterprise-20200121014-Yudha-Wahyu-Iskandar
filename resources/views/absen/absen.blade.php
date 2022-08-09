@@ -16,9 +16,9 @@
         <form action="/absen" method="post">
             @csrf
             @method('post')
-            <label for="mahasiswa_id">Nama Mahasiswa :</label>
             <div class="row d-flex justify-content-between justify-items-center">
                 <div class="col">
+                    <label for="mahasiswa_id">Nama Mahasiswa :</label>
                     <x-adminlte-select2 name="mahasiswa_id">
                         <option disabled selected>Pilih Mahasiswa</option>
                         @foreach ($mahasiswa as $datamahasiswa)
@@ -26,7 +26,9 @@
                         @endforeach
                     </x-adminlte-select2>
                 </div>
+                
                 <div class="col">
+                    <label for="mahasiswa_id">Matakuliah :</label>
                     <x-adminlte-select2 name="matakuliah_id">
                         <option disabled selected>Pilih matakuliah</option>
                         @foreach ($matkul as $datamatakuliah)
@@ -38,6 +40,7 @@
                     <input hidden type="datetime-local" class="form-control" name="waktu_absen" value="{{ now() }}">
                 </div>
                 <div class="col">
+                    <label for="mahasiswa_id">Keterangan :</label>
                     <x-adminlte-select2 name="keterangan">
                         <option disabled selected>Keterangan</option>
                         <option value="Hadir">Hadir</option>
@@ -46,7 +49,8 @@
                 </div>
                 {{-- Button --}}
                 <div class="col">
-                    <x-adminlte-button class="btn-flat btn-sm" type="submit" label="Submit" theme="success"
+                    <input for="" hidden><br>
+                    <x-adminlte-button class="mt-2 btn-flat btn-sm" type="submit" label="Submit" theme="success"
                         icon="fas fa-lg fa-save" />
                 </div>
             </div>
@@ -69,8 +73,17 @@
                         <td scope="col">{{ $data->mahasiswa->nama_mahasiswa }}</td>
                         <td scope="col">{{ $data->waktu_absen }}</td>
                         <td scope="col">{{ $data->matakuliah->nama_matkul }}</td>
-                        <td scope="col">{{ $data->keterangan }}</td>
-
+                        @if ($data->keterangan == 'Hadir')
+                            <td scope="col" class="text-success">
+                                <i class="fas fa-check-circle"></i>
+                                {{ $data->keterangan }}
+                            </td>
+                        @else
+                            <td scope="col" class="text-danger">
+                                <i class="fas fa-times-circle"></i>
+                                {{ $data->keterangan }}
+                            </td>
+                        @endif
                     </tr>
             </tbody>
             @endforeach

@@ -63,6 +63,8 @@
                                     @foreach ($matakuliah as $datamatkul)
                                         <option value="{{ $datamatkul->id }}">{{ $datamatkul->nama_matkul }}</option>
                                     @endforeach
+                                    <x-slot name="footerSlot">
+                                    </x-slot>
                                 </x-adminlte-select2>
                                 {{-- Button --}}
                                 <x-adminlte-button class="btn-flat btn-sm" type="submit" label="Submit" theme="success"
@@ -103,6 +105,8 @@
                         icon="fas fa-lg fa-trash" />
                 </form>
             </div>
+            <x-slot name="footerSlot">
+            </x-slot>
         </x-adminlte-modal>
     </div>
 @stop

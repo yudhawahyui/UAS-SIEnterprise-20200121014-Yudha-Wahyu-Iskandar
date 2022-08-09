@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('kontrak_matakuliahs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mahasiswa_id')->unique();
+            $table->foreignId('mahasiswa_id')->unique()->nullable();
             $table->foreignId('semester_id');
             $table->timestamps();
         });

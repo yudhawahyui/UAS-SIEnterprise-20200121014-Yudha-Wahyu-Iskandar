@@ -84,7 +84,8 @@
                                     icon="fas fa-lg fa-trash" />
                             </form>
                         </div>
-
+                        <x-slot name="footerSlot">
+                        </x-slot>
 
                     </x-adminlte-modal>
 
@@ -124,6 +125,8 @@
                         icon="fas fa-lg fa-trash" />
                 </form>
             </div>
+            <x-slot name="footerSlot">
+            </x-slot>
         </x-adminlte-modal>
     </div>
 @stop

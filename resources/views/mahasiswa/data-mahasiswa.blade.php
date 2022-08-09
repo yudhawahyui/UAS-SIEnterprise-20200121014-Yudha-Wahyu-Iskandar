@@ -77,11 +77,11 @@
                                 <x-adminlte-input name="no_tlp" type="text" value="{{ $data->no_tlp }}" />
 
                                 {{-- Button --}}
+                                <x-adminlte-button class="btn-flat btn-sm" type="submit" label="Submit" theme="success"
+                                    icon="fas fa-lg fa-save" />
+                                <x-adminlte-button class="btn-sm" type="reset" label="Reset" theme="outline-danger"
+                                    icon="fas fa-lg fa-trash" />
                                 <x-slot name="footerSlot">
-                                    <x-adminlte-button class="btn-flat btn-sm" type="submit" label="Submit" theme="success"
-                                        icon="fas fa-lg fa-save" />
-                                    <x-adminlte-button class="btn-sm" type="reset" label="Reset" theme="outline-danger"
-                                        icon="fas fa-lg fa-trash" />
                                 </x-slot>
                             </form>
                         </div>
@@ -91,7 +91,7 @@
             <tfoot>
                 <tr>
                     <td colspan="5">Total Mahasiswa</td>
-                    <td colspan="1">{{ $data->count() }}</td>
+                    <td colspan="1">{{ $mahasiswa->count() }}</td>
                 </tr>
             </tfoot>
         </table>
@@ -123,6 +123,8 @@
                         icon="fas fa-lg fa-trash" />
                 </form>
             </div>
+            <x-slot name="footerSlot">
+            </x-slot>
         </x-adminlte-modal>
     </div>
     @include('sweetalert::alert')
